@@ -38,7 +38,7 @@ pipeline {
 
          stage("Deploy"){
             steps {
-                withEnv(["KUBECONFIG=${KUBECONFIG}"]) {
+                sh 'export KUBECONFIG=$(kind get kubeconfig-path --name=kind)' 
                 sh 'kubectl apply -f ./k8s/deployment.yaml'
             }        
         }
@@ -47,4 +47,3 @@ pipeline {
     }
 }    
 
-}
