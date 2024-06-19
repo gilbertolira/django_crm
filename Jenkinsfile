@@ -33,7 +33,7 @@ pipeline {
 
          stage("Deploy"){
             steps {
-                sh 'kubectl apply -f ./k8s/deploymenteyaml'
+                sh 'kubectl apply -f ./k8s/deployment.yaml'
             }        
         }
        
