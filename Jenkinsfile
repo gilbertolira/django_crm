@@ -19,7 +19,7 @@ pipeline {
             steps{
                 script{
                   sh 'ls -al'
-                  sh 'ls -al ./app/Desafio360/django_crm'
+                  sh 'ls -al ./app'
                   dockerImage =  docker.build("betolira/django-crm:${env.BUILD_ID}", '-f ./app/Dockerfile .')
                 }
             }
