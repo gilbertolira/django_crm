@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+    environment {
+        NAMESPACE_K8S = 'default' 
+        KUBECONFIG = "${HOME}/.kube/config"
+    }
+
     stages {
                 
         stage("Baixando a imagem"){
@@ -33,6 +38,7 @@ pipeline {
 
          stage("Deploy"){
             steps {
+                withEnv(["KUBECONFIG=${KUBECONFIG}"]) {
                 sh 'kubectl apply -f ./k8s/deployment.yaml'
             }        
         }
