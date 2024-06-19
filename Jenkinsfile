@@ -11,7 +11,7 @@ pipeline {
         
         stage("Baixando a imagem"){
             steps {
-                git url: 'https://github.com/gilbertolira/Desafio360.git', branch: 'develop'
+                git url: 'https://github.com/gilbertolira/django_crm.git', branch: 'develop'
             } 
         }
 
@@ -19,7 +19,7 @@ pipeline {
             steps{
                 script{
                   sh 'ls -al'
-                  dockerImage =  docker.build("betolira/django-crm:${env.BUILD_ID}", '-f ./desafio360/django_crm/Dockerfile .')
+                  dockerImage =  docker.build("betolira/django-crm:${env.BUILD_ID}", '-f ./django_crm/app/Dockerfile .')
                 }
             }
 
