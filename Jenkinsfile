@@ -3,8 +3,8 @@ pipeline {
 
     environment {
         NAMESPACE_K8S = 'default' 
-        KUBECONFIG = "${HOME}/.kube/config"
-    }
+        KUBECONFIG = "${HOME}/.kube/kind-config-kind"
+        }
 
     stages {
                 
