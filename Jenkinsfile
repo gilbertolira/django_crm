@@ -19,7 +19,7 @@ pipeline {
             steps{
                 script{
                   sh 'ls -al'
-                  dockerImage =  docker.build("betolira/django-crm:${env.BUILD_ID}", '-f ./django_crm/app/Dockerfile .')
+                  dockerImage =  docker.build("betolira/django-crm:${env.BUILD_ID}", '-f ./app/Dockerfile .')
                 }
             }
 
