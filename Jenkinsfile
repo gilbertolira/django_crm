@@ -2,13 +2,7 @@ pipeline {
     agent any
 
     stages {
-        
-        stage("deploy"){
-            steps {
-                echo "realizando o deploy..."
-            }        
-        }
-        
+                
         stage("Baixando a imagem"){
             steps {
                 git url: 'https://github.com/gilbertolira/django_crm.git', branch: 'develop'
@@ -35,6 +29,12 @@ pipeline {
                     }
                 }
             }
+        }
+
+         stage("Deploy"){
+            steps {
+                sh 'kubectl apply -f ./k8s/deploymenteyaml'
+            }        
         }
        
         

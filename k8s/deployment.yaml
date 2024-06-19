@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name:  app
-        image: betolira/django-crm:v1
+        image: betolira/django-crm:{{tag}}
         ports:
         - containerPort: 8000
         
