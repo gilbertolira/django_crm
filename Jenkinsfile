@@ -38,7 +38,7 @@ pipeline {
 
          stage("Deploy"){
             steps {
-                sh 'export KUBECONFIG=$(kind get kubeconfig-path --name=kind)' 
+                sh 'export KUBECONFIG=$(kind get kubeconfig --internal)' 
                 sh 'kubectl apply -f ./k8s/deployment.yaml'
             }        
         }
