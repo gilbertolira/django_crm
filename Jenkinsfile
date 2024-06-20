@@ -8,7 +8,7 @@ pipeline {
 
     stages {
                 
-        stage("Baixando a imagem"){
+        stage("Checkout"){
             steps {
                 git url: 'https://github.com/gilbertolira/django_crm.git', branch: 'develop'
             } 
@@ -17,9 +17,7 @@ pipeline {
         stage ("Build Image"){
             steps{
                 script{
-                  sh 'ls -al'
-                  sh 'ls -al ./app'
-                  dockerImage =  docker.build("betolira/django-crm:${env.BUILD_ID}", '-f ./app/Dockerfile .')
+                    dockerImage =  docker.build("betolira/django-crm:${env.BUILD_ID}", '-f ./app/Dockerfile .')
                 }
             }
 
@@ -38,7 +36,6 @@ pipeline {
 
          stage("Deploy"){
             steps {
-                sh 'export KUBECONFIG=$(kind get kubeconfig --internal)' 
                 sh 'kubectl apply -f ./k8s/deployment.yaml'
             }        
         }
