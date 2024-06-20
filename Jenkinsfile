@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        NAMESPACE_K8S = 'default' 
-        KUBECONFIG = "${HOME}/.kube/config"
+        
+        KUBECONFIG = credentials('kubeconfig')"
     }
 
     stages {
