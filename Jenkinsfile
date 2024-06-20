@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         
-        KUBECONFIG = credentials('kubeconfig')"
+        KUBECONFIG = credentials('kubeconfig')
     }
 
     stages {
