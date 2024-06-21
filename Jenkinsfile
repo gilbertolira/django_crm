@@ -14,7 +14,7 @@ pipeline {
             } 
         }
 
-        stage ("Build Image"){
+        stage ("Build Image teste"){
             steps{
                 script{
                     dockerImage =  docker.build("betolira/django-crm:${env.BUILD_ID}", '-f ./app/Dockerfile .')
