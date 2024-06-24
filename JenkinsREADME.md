@@ -42,6 +42,8 @@ Instalação e Configuração do Jenkins
 
         - GitHub
 
+        - GitHub Integration 
+
         - DockerHub
 
         - KubeConfig
